@@ -400,8 +400,13 @@ p {font-size:1.6em; line-height:1.414; margin:0px 0px 16px; font-family:Nunito S
 }
 
 #panel-2 ul {
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
     display: flex;
     flex-direction: row;
+    -webkit-justify-content: space-evenly;
     justify-content: space-evenly;
     width: 100%;
     text-align: center;
@@ -676,8 +681,14 @@ input[type="date"]:not(:focus):valid {border-color:#e6003e;}
 /*Footer Start*/
 
 .footer {float:left; width:100%; background:#e60d43; padding:30px; position:relative; box-sizing:border-box;}
-.footer .container {display:flex; flex-direction:row; justify-content:space-between; max-width:1170px; margin:0 auto;}
-.footer .ftrDiv {display:flex; flex-direction:column;}
+.footer .container {display:flex;   display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;      /* TWEENER - IE 10 */
+  display: -webkit-flex;     /* NEW - Chrome */ flex-direction:row; justify-content:space-between; max-width:1170px; margin:0 auto;}
+.footer .ftrDiv {display:flex; flex-direction:column;   display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;      /* TWEENER - IE 10 */
+  display: -webkit-flex;     /* NEW - Chrome */}
 .footer .ftrDiv h2 { color:#fff; font:400 15px/20px 'Lato', sans-serif; margin:0 0 15px 0; padding:0; text-transform:uppercase; text-transform:1px;}
 .footer .ftrDiv p {font-size:1.3em; margin:0 0 7px 0; padding:0; color:#ffb2c5;}
 .footer .ftrDiv a {font-family:Nunito; font-size:1.1em; margin:0; padding:0; color:#ffb2c5;}
@@ -690,8 +701,8 @@ input[type="date"]:not(:focus):valid {border-color:#e6003e;}
 
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
 
-.banner {height:75vw;}
-
+.banner {height:100vw;}
+#panel-1 .left-btn, #panel-1 .center-btn, #panel-1 .right-btn {font-size: 0.82em; background:white;}
 #panel-1 a, #panel-3 a {font-size:1.6em;}
 #cta {flex-direction:column;}
 #cta-form {width:100%;}
@@ -703,6 +714,7 @@ input[type="date"]:not(:focus):valid {border-color:#e6003e;}
 .mobile-hide {display:none;}
 #regForm {max-width:100%;}
 #regForm .tab {flex-direction: column;}
+#regForm div {margin-bottom:23px;}
 }
 
 @media only screen and (max-width: 767px) {
@@ -711,7 +723,7 @@ input[type="date"]:not(:focus):valid {border-color:#e6003e;}
 header ul .phone {font-size:3.2em; margin-left:23px;}
 
 .banner {
-    height: 140vw;
+    height: 180vw;
     width: 100%;
     padding: 15px 15px 30px;
     box-sizing: border-box;
@@ -762,6 +774,7 @@ h3 {
 }
 .footer .container {flex-direction:column;}
 #regForm {max-width:100%;}
+#regForm div {margin-bottom:23px;}
 #regForm .tab {flex-direction: column;}
 .footer .ftrDiv img {margin-top: 32px;}
 }
