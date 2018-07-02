@@ -1,0 +1,169 @@
+<!doctype html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>{{ page.title }}</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=1">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="robots" content="noindex" />
+  <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
+  <link rel="profile" href="http://gmpg.org/xfn/11">
+  <link href="https://fonts.googleapis.com/css?family={{ page.body-font }}:300,400,600|{{ page.headline-font }}:400,600,800" rel="stylesheet">
+  <link rel="stylesheet" href="/css/hover.css" media="screen">
+  <link rel="stylesheet" href="/css/style.css" media="screen">
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+</head>
+<body class="{{page.layout}}">
+<div class="banner" style="background-image: url({{ page.banner }});">
+    {% include header.html %}
+    <div class="callout">
+				<h1>{{ page.callout }}</h1>
+	<form id="regForm" autocomplete="off" action="/action_page.html">
+  <!-- One "tab" for each step in the form: -->
+  <div class="tab">
+    <div style="margin-right:16px;" >
+      <span class='blocking-span'>
+        <input type="text" autocomplete="off" name="zip-from" id="zip-from" class="inputText" required oninput="this.className = ''"/>
+        <span class="floating-label"><span class="flaticon-marker"></span> Moving From</span>
+      </span>
+    </div>
+    <div>
+      <span class='blocking-span'>
+        <input type="text" autocomplete="off" name="zip-to" id="zip-to" class="inputText" required oninput="this.className = ''"/>
+        <span class="floating-label"><span class="flaticon-marker"></span> Moving to</span>
+      </span>
+    </div>
+  </div>
+  <div class="tab">
+    <div style="margin-right:16px;">
+      <span class='blocking-span'>
+        <input type="number" autocomplete="off" name="rooms" id="rooms" class="inputText" required oninput="this.className = ''"/>
+        <span class="floating-label"><span class="flaticon-rooms"></span> Number of Rooms</span>
+      </span>
+    </div>
+    <div>
+      <span class='blocking-span'>
+        <input type="text" autocomplete="off" name="date" id="date" class="inputText" required oninput="this.className = ''"/>
+        <span class="floating-label"><span class="flaticon-date"></span> Date of Move</span>
+      </span>
+    </div>
+  </div>
+  <div class="tab">
+    <div style="margin-right:16px;">
+      <span class="blocking-span">
+        <input type="text" autocomplete="off" name="name" id="name" class="inputText" required/>
+        <span class="floating-label"><span class="flaticon-user"></span> Full Name</span>
+      </span>
+    </div>
+    <div style="margin-right:16px;">
+      <span class='blocking-span'>
+        <input type="email" autocomplete="off" name="email" class="inputText" required/>
+        <span class="floating-label"><span class="flaticon-email"></span> E-mail</span>
+      </span>
+    </div>
+    <div>
+      <span class='blocking-span'>
+        <input type="phone" autocomplete="off" name="phone" id="phone" class="inputText" required/>
+        <span class="floating-label"><span class="flaticon-phone-solid"></span> Phone</span>
+      </span>
+    </div>
+  </div>
+      <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+      <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+  </div>
+  <!-- Circles which indicates the steps of the form: -->
+
+    <span class="step"></span>
+    <span class="step"></span>
+    <span class="step"></span>
+
+</form>
+
+		</div>
+</div>
+
+<main id="content" class="clearfix" role="main">
+    <div id="panel-1">
+        <div>
+          <div class="buttons">
+            <button class="hvr-sweep-to-right left-btn" onclick="openService('#service-1')">{{ page.service-1-title }}</button>
+            <button class="hvr-sweep-to-bottom center-btn" onclick="openService('#service-2')">{{ page.service-2-title }}</button>
+            <button class="hvr-sweep-to-left right-btn" onclick="openService('#service-3')">{{ page.service-3-title }}</button>
+          </div>
+            <div id="#service-1" class="service">
+              <h2>{{ page.service-1-title }}</h2>
+              <p>{{ page.service-1-body }}</p>
+            </div>
+            <div id="#service-2" class="service" style="display:none;">
+              <h2>{{ page.service-2-title }}</h2>
+              <p>{{ page.service-2-body }}</p>
+            </div>
+            <div id="#service-3" class="service" style="display:none;">
+              <h2>{{ page.service-3-title }}</h2>
+              <p>{{ page.service-3-body }}</p>
+            </div>
+            <a class="hvr-hang" href="#panel-4">{{ page.panel-1-link }}<br><span class="flaticon-arrow-down"></span></a>
+        </div>
+    </div>
+    <div id="panel-2">
+        <ul id="counter">
+      <li>
+        <div class="icon"> <img src="/images/abt-bottom1.png" alt=""> </div>
+        <div class="txt">
+          <h1 class="counter-value" data-count="4500">4500</h1>
+          <p class="wow fadeInDown animated" style="visibility: visible; animation-name: fadeInDown;">Happy Clients</p>
+        </div>
+      </li>
+      <li>
+        <div class="icon"> <img src="/images/abt-bottom2.png" alt=""> </div>
+        <div class="txt">
+          <h1 class="counter-value" data-count="200">200</h1>
+          <p class="wow fadeInDown animated" style="visibility: visible; animation-name: fadeInDown;">Employees</p>
+        </div>
+      </li>
+      <li>
+        <div class="icon"> <img src="/images/abt-bottom3.png" alt=""> </div>
+        <div class="txt">
+          <h1 class="counter-value" data-count="4000">4000</h1>
+          <p class="wow fadeInDown animated" style="visibility: visible; animation-name: fadeInDown;">Moves</p>
+        </div>
+      </li>
+      <li>
+        <div class="icon"> <img src="/images/abt-bottom4.png" alt=""> </div>
+        <div class="txt">
+          <h1 class="counter-value" data-count="1300">1300</h1>
+          <p class="wow fadeInDown animated" style="visibility: visible; animation-name: fadeInDown;">Cups of Coffee</p>
+        </div>
+      </li>
+    </ul>
+    </div>
+    <div id="panel-3">
+        <div class="text-content">
+            <h3>{{ page.panel-3-title-1 }}</h3>
+            <p>{{ page.panel-3-body-1 }}</p>
+            <a class="hvr-forward" href="#panel-4">{{ page.panel-3-link-1 }} <span class="flaticon-arrow-right"></span></a>
+        </div>
+        <div class="img-content">
+            <img src="{{ page.panel-3-img-1 }}">
+        </div>
+    </div>
+    <div id="panel-3">
+        <div class="img-content">
+            <img class="mobile-hide" src="{{ page.panel-3-img-2 }}">
+        </div>
+        <div class="text-content">
+            <h3>{{ page.panel-3-title-2 }}</h3>
+            <p>{{ page.panel-3-body-2 }}</p>
+            <a class="hvr-forward" href="#panel-4">{{ page.panel-3-link-2 }} <span class="flaticon-arrow-right"></span></a>
+        </div>
+    </div>
+    <div id="panel-4">
+        {% include cta-long.html %}
+    </div>
+</main>
+{{ content }}
+{% include footer.html %}

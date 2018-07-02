@@ -1,0 +1,19 @@
+# Site settings
+title: Excalibur Moving Group
+email: 
+description: 
+baseurl: ""  
+url: "http://localhost:4000/"
+name: Excalibur Moving Group
+# Where things are
+source:          .
+destination:     ./_site
+collections_dir: .
+plugins_dir:     _plugins
+layouts_dir:     _layouts
+data_dir:        _data
+includes_dir:    _includes
+assets_dir:      images
+collections:
+  posts:
+    output:   true

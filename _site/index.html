@@ -1,0 +1,412 @@
+<!doctype html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>Excalibur Moving Group</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=1">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="robots" content="noindex" />
+  <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
+  <link rel="profile" href="http://gmpg.org/xfn/11">
+  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600|Nunito:400,600,800" rel="stylesheet">
+  <link rel="stylesheet" href="/css/hover.css" media="screen">
+  <link rel="stylesheet" href="/css/style.css" media="screen">
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+</head>
+<body class="home">
+<div class="banner" style="background-image: url(/images/banner.jpg);">
+    <header role="banner">
+    <a href="/index.html">
+      <img src="/images/logo.png" class="logo">
+    </a>
+      <nav>
+        <ul>
+          <li>
+            <a class="hvr-backward phone" href="tel:(888) 204-0718">
+              <span class="flaticon-phone-outline"></span> <tel class="mobile-hide">(888) 204-0718</tel>
+            </a>
+          </li>
+        </ul>
+      </nav>
+  </header>
+    <div class="callout">
+				<h1>Let's plan<br>your <span>move.</span></h1>
+	<form id="regForm" autocomplete="off" action="/action_page.html">
+  <!-- One "tab" for each step in the form: -->
+  <div class="tab">
+    <div style="margin-right:16px;" >
+      <span class='blocking-span'>
+        <input type="text" autocomplete="off" name="zip-from" id="zip-from" class="inputText" required oninput="this.className = ''"/>
+        <span class="floating-label"><span class="flaticon-marker"></span> Moving From</span>
+      </span>
+    </div>
+    <div>
+      <span class='blocking-span'>
+        <input type="text" autocomplete="off" name="zip-to" id="zip-to" class="inputText" required oninput="this.className = ''"/>
+        <span class="floating-label"><span class="flaticon-marker"></span> Moving to</span>
+      </span>
+    </div>
+  </div>
+  <div class="tab">
+    <div style="margin-right:16px;">
+      <span class='blocking-span'>
+        <input type="number" autocomplete="off" name="rooms" id="rooms" class="inputText" required oninput="this.className = ''"/>
+        <span class="floating-label"><span class="flaticon-rooms"></span> Number of Rooms</span>
+      </span>
+    </div>
+    <div>
+      <span class='blocking-span'>
+        <input type="text" autocomplete="off" name="date" id="date" class="inputText" required oninput="this.className = ''"/>
+        <span class="floating-label"><span class="flaticon-date"></span> Date of Move</span>
+      </span>
+    </div>
+  </div>
+  <div class="tab">
+    <div style="margin-right:16px;">
+      <span class="blocking-span">
+        <input type="text" autocomplete="off" name="name" id="name" class="inputText" required/>
+        <span class="floating-label"><span class="flaticon-user"></span> Full Name</span>
+      </span>
+    </div>
+    <div style="margin-right:16px;">
+      <span class='blocking-span'>
+        <input type="email" autocomplete="off" name="email" class="inputText" required/>
+        <span class="floating-label"><span class="flaticon-email"></span> E-mail</span>
+      </span>
+    </div>
+    <div>
+      <span class='blocking-span'>
+        <input type="phone" autocomplete="off" name="phone" id="phone" class="inputText" required/>
+        <span class="floating-label"><span class="flaticon-phone-solid"></span> Phone</span>
+      </span>
+    </div>
+  </div>
+      <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+      <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+  </div>
+  <!-- Circles which indicates the steps of the form: -->
+
+    <span class="step"></span>
+    <span class="step"></span>
+    <span class="step"></span>
+
+</form>
+
+		</div>
+</div>
+
+<main id="content" class="clearfix" role="main">
+    <div id="panel-1">
+        <div>
+          <div class="buttons">
+            <button class="hvr-sweep-to-right left-btn" onclick="openService('#service-1')">Residential Services</button>
+            <button class="hvr-sweep-to-bottom center-btn" onclick="openService('#service-2')">Commercial Moving</button>
+            <button class="hvr-sweep-to-left right-btn" onclick="openService('#service-3')">Interstate Moving</button>
+          </div>
+            <div id="#service-1" class="service">
+              <h2>Residential Services</h2>
+              <p>When moving your family, you want professional movers who know exactly what they’re doing. Movers who have the expertise and the track record to back up their promise of a hassle-free move. For that type of experience, Excalibur Moving Group is your team.</p>
+            </div>
+            <div id="#service-2" class="service" style="display:none;">
+              <h2>Commercial Moving</h2>
+              <p>As a top-rated relocation service provider in the United States, you can trust Excalibur to effectively assist you in the relocation of your commercial space. We will carefully craft your move so you can quickly go back to focusing on your business operations!</p>
+            </div>
+            <div id="#service-3" class="service" style="display:none;">
+              <h2>Interstate Moving</h2>
+              <p>We know that your home and your business are some of the most important aspects of your life. That is why as an integral part of our company ethos, our trained specialists will always operate to fulfill your demands and provide easy solutions to residential or commercial cross-border moving.</p>
+            </div>
+            <a class="hvr-hang" href="#panel-4">Let's Plan Your Move<br><span class="flaticon-arrow-down"></span></a>
+        </div>
+    </div>
+    <div id="panel-2">
+        <ul id="counter">
+      <li>
+        <div class="icon"> <img src="/images/abt-bottom1.png" alt=""> </div>
+        <div class="txt">
+          <h1 class="counter-value" data-count="4500">4500</h1>
+          <p class="wow fadeInDown animated" style="visibility: visible; animation-name: fadeInDown;">Happy Clients</p>
+        </div>
+      </li>
+      <li>
+        <div class="icon"> <img src="/images/abt-bottom2.png" alt=""> </div>
+        <div class="txt">
+          <h1 class="counter-value" data-count="200">200</h1>
+          <p class="wow fadeInDown animated" style="visibility: visible; animation-name: fadeInDown;">Employees</p>
+        </div>
+      </li>
+      <li>
+        <div class="icon"> <img src="/images/abt-bottom3.png" alt=""> </div>
+        <div class="txt">
+          <h1 class="counter-value" data-count="4000">4000</h1>
+          <p class="wow fadeInDown animated" style="visibility: visible; animation-name: fadeInDown;">Moves</p>
+        </div>
+      </li>
+      <li>
+        <div class="icon"> <img src="/images/abt-bottom4.png" alt=""> </div>
+        <div class="txt">
+          <h1 class="counter-value" data-count="1300">1300</h1>
+          <p class="wow fadeInDown animated" style="visibility: visible; animation-name: fadeInDown;">Cups of Coffee</p>
+        </div>
+      </li>
+    </ul>
+    </div>
+    <div id="panel-3">
+        <div class="text-content">
+            <h3>Our Mission</h3>
+            <p>We constantly engage in honest, loyal and ethical business practices by providing superior counsel to our clients through leadership, experience and knowledge. Our staff is committed to exceed our customer's expectations.</p>
+            <a class="hvr-forward" href="#panel-4">Let's Plan Your Move <span class="flaticon-arrow-right"></span></a>
+        </div>
+        <div class="img-content">
+            <img src="/images/img-1.jpg">
+        </div>
+    </div>
+    <div id="panel-3">
+        <div class="img-content">
+            <img class="mobile-hide" src="/images/img-2.jpg">
+        </div>
+        <div class="text-content">
+            <h3>Our Vision</h3>
+            <p>Nulla dapibus tellus sed purus dictum, quis luctus est mattis. Nam sit amet laoreet urna, vel iaculis justo. Quisque sit amet ultrices risus.</p>
+            <a class="hvr-forward" href="#panel-4">Let's Get Started <span class="flaticon-arrow-right"></span></a>
+        </div>
+    </div>
+    <div id="panel-4">
+                <div id="call-out">
+            <h3>Let's Plan Your Move</h3>
+            <p>Your satisfaction is our priority. Excalibur has a long-standing reputation for quality and is recognized for excellence that enhances the overall calibre and outcome of your moving experience. Our people combine entrepreneurial spirit and a deep understanding of client needs, to serve you with the highest standards of customer care.</p>
+            <a href="#name-2" id="link" class="hvr-forward">Fill out your contact information <span class="flaticon-arrow-right"></span></a>
+        </div>
+        <div id="cta-form">
+            <div>
+              <span class="blocking-span">
+                <input type="text" name="name" id="name-2" class="inputText" required/>
+                <span class="floating-label"><span class="flaticon-user"></span> Full Name</span>
+              </span>
+            </div>
+            <div>
+              <span class='blocking-span'>
+                <input type="email" name="email" class="inputText" required/>
+                <span class="floating-label"><span class="flaticon-email"></span> E-mail</span>
+              </span>
+            </div>
+            <div>
+              <span class='blocking-span'>
+                <input type="phone" name="phone" id="phone-2" class="inputText" required/>
+                <span class="floating-label"><span class="flaticon-phone-solid"></span> Phone</span>
+              </span>
+            </div>
+            <div>
+              <span class='blocking-span'>
+                <input type="text" name="zip-from" id="zip-from-2" class="inputText" required/>
+                <span class="floating-label"><span class="flaticon-marker"></span> Moving From</span>
+              </span>
+            </div>
+            <div>
+              <span class='blocking-span'>
+                <input type="text" name="zip-to" id="zip-to-2" class="inputText" required/>
+                <span class="floating-label"><span class="flaticon-marker"></span> Moving to</span>
+              </span>
+            </div>
+            <div>
+              <span class='blocking-span'>
+                <input type="number" name="rooms" id="rooms" class="inputText" required/>
+                <span class="floating-label"><span class="flaticon-rooms"></span> Number of Rooms</span>
+              </span>
+            </div>
+            <div>
+              <span class='blocking-span'>
+                <input type="text" name="date-2" id="date-2" class="inputText" required/>
+                <span class="floating-label"><span class="flaticon-date"></span> Date of Move</span>
+              </span>
+            </div>
+            <button type="submit"> Let's Get Started <span class="flaticon-arrow-right"></span></button>
+        </div>
+    </div>
+</main>
+
+
+<div class="footer">
+
+  <div class="container"> 
+
+    <div class="ftrDiv">
+      <h2>Contact information</h2>
+			  <a class="regular" href="tel:8882740178"><p>Phone : (888) 274-0178</p></a><a class="justLandingPage" href="tel:8777473299"><p>Phone : (877) 747-3299</p></a>
+        <p>Email : <a href="mailto:Excalibur@movinggroup.com">info@excaliburmovinggroup.com</a></p>
+        <h2>Address :</h2>
+        <p>Florida, Maine, and Missouri Over 180 Agents Nationwide</p>
+    </div>
+    <div class="ftrDiv">
+      <h2>Resources</h2>
+        <p><a href="http://www.excaliburmovinggroup.com/get-a-quote/">Get A Quote</a></p>
+        <p><a href="http://www.excaliburmovinggroup.com/auto-transport/">Auto Transport</a></p>
+        <p><a href="http://www.excaliburmovinggroup.com/cancellation-request/">Cancellation Request</a></p>
+    </div>
+    <div class="ftrDiv">
+      <h2>Moving Services</h2>
+        <p><a href="http://www.excaliburmovinggroup.com/residenctal-services/">Residential Moving</a></p>
+        <p><a href="http://www.excaliburmovinggroup.com/commercial-moving/">Commercial Moving</a></p>
+        <p><a href="http://www.excaliburmovinggroup.com/interstate-moving/">Interstate Moving</a></p>
+    </div>
+    <div class="ftrDiv" style="text-align:center;">
+      <a href="http://www.excaliburmovinggroup.com/"><img src="http://www.excaliburmovinggroup.com/wp-content/themes/excaliber/images/ftr-logo.png" alt=""></a>
+      <p>Excalibur Moving Group © 2018.<br>All Rights Reserved.</p>
+    </div>
+  </div>
+    <div class="footer-bottom">
+    <div class="textwidget"><p class="bottomfooter">DOT: 3054918 MC: 51832 Please note that a properly licensed interstate broker, such as Excalibur Moving Group, is not a motor carrier and will not transport an individual shipper’s household goods, but will coordinate and arrange for the transportation of household goods by an FMCSA authorized motor carrier, whose charges will be determined by its published tariff. All estimated charges and final actual charges will be based upon the carrier’s tariff which is available for inspection from the carrier upon reasonable request. (*) 70% OFF on Tariff Rates.</p>
+		
+    </div>
+
+  </div>
+
+</div>
+
+<script src="/js/jquery.mask.js"></script>
+<script>
+var currentTab = 0; // Current tab is set to be the first tab (0)
+showTab(currentTab); // Display the crurrent tab
+
+function showTab(n) {
+  // This function will display the specified tab of the form...
+  var x = document.getElementsByClassName("tab");
+  x[n].style.display = "flex";
+  //... and fix the Previous/Next buttons:
+  if (n == 0) {
+    document.getElementById("prevBtn").style.display = "none";
+  } else {
+    document.getElementById("prevBtn").style.display = "inline";
+  }
+  if (n == (x.length - 1)) {
+    document.getElementById("nextBtn").innerHTML = "Submit";
+  } else {
+    document.getElementById("nextBtn").innerHTML = "Next";
+  }
+  //... and run a function that will display the correct step indicator:
+  fixStepIndicator(n)
+}
+
+function nextPrev(n) {
+  // This function will figure out which tab to display
+  var x = document.getElementsByClassName("tab");
+  // Exit the function if any field in the current tab is invalid:
+  if (n == 1 && !validateForm()) return false;
+  // Hide the current tab:
+  x[currentTab].style.display = "none";
+  // Increase or decrease the current tab by 1:
+  currentTab = currentTab + n;
+  // if you have reached the end of the form...
+  if (currentTab >= x.length) {
+    // ... the form gets submitted:
+    document.getElementById("regForm").submit();
+    return false;
+  }
+  // Otherwise, display the correct tab:
+  showTab(currentTab);
+}
+
+function validateForm() {
+  // This function deals with validation of the form fields
+  var x, y, i, valid = true;
+  x = document.getElementsByClassName("tab");
+  y = x[currentTab].getElementsByTagName("input");
+  // A loop that checks every input field in the current tab:
+  for (i = 0; i < y.length; i++) {
+    // If a field is empty...
+    if (y[i].value == "") {
+      // add an "invalid" class to the field:
+      y[i].className += " invalid";
+      // and set the current valid status to false
+      valid = false;
+    }
+  }
+  // If the valid status is true, mark the step as finished and valid:
+  if (valid) {
+    document.getElementsByClassName("step")[currentTab].className += " finish";
+  }
+  return valid; // return the valid status
+}
+
+function fixStepIndicator(n) {
+  // This function removes the "active" class of all steps...
+  var i, x = document.getElementsByClassName("step");
+  for (i = 0; i < x.length; i++) {
+    x[i].className = x[i].className.replace(" active", "");
+  }
+  //... and adds the "active" class on the current step:
+  x[n].className += " active";
+}
+
+  function openService(serviceName) {
+      var i;
+      var x = document.getElementsByClassName("service");
+      for (i = 0; i < x.length; i++) {
+          x[i].style.display = "none"; 
+      }
+      tablinks = document.getElementsByClassName("service");
+      for (i = 0; i < x.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" service", "");
+      }
+      document.getElementById(serviceName).style.display = "block"; 
+      evt.currentTarget.className += " active";
+  }
+
+	$('#phone').mask("+1(000)000-0000");
+	$('#zip-from').mask("Zip Code: 00000-000");
+	$('#zip-to').mask("Zip Code: 00000-000");
+	$('#date').mask("00 / 00 / 0000");
+	$('#phone-2').mask("+1(000)000-0000");
+	$('#zip-from-2').mask("Zip Code: 00000-000");
+	$('#zip-to-2').mask("Zip Code: 00000-000");
+	$('#date-2').mask("00 / 00 / 0000");
+	
+	$('textarea').blur(
+        function(){
+            $(this).css('border-bottom','2px solid #8f819b');
+        });
+    $('#link').click(function (evt){
+      $('input#name').removeAttr('value');
+      $("input#name").focus();
+      evt.preventDefault();
+    });
+$('a[href*="#"]')
+  // Remove links that don't actually link to anything
+  .not('[href="#"]')
+  .not('[href="#0"]')
+  .click(function(event) {
+    // On-page links
+    if (
+      location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
+      && 
+      location.hostname == this.hostname
+    ) {
+      // Figure out element to scroll to
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+      // Does a scroll target exist?
+      if (target.length) {
+        // Only prevent default if animation is actually gonna happen
+        event.preventDefault();
+        $('html, body').animate({
+          scrollTop: target.offset().top - 200
+        }, 1000, function() {
+          // Callback after animation
+          // Must change focus!
+          var $target = $(target);
+          $target.focus();
+          if ($target.is(":focus")) { // Checking if the target was focused
+            return false;
+          } else {
+            $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
+            $target.focus(); // Set focus again
+          };
+        });
+      }
+    }
+  });
+
+</script>
