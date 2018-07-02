@@ -392,6 +392,10 @@ p {font-size:1.6em; line-height:1.414; margin:0px 0px 16px; font-family:Nunito S
     border-top: 1px solid #e1e1e1;
     border-bottom: 1px solid #e1e1e1;
     padding: 3.2vw 1vw;
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
     display: flex;
     -webkit-justify-content: space-around;
     justify-content: space-around;
