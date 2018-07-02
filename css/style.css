@@ -410,8 +410,8 @@ p {font-size:1.6em; line-height:1.414; margin:0px 0px 16px; font-family:Nunito S
     display: -webkit-flex;     /* NEW - Chrome */
     display: flex;
     flex-direction: row;
+    justify-content: center;
     -webkit-justify-content: space-evenly;
-    justify-content: space-evenly;
     width: 100%;
     text-align: center;
     list-style: none;
