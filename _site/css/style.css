@@ -47,6 +47,8 @@ body {
   font-size:10px;
 }
 
+input:focus {outline:0px!important;}
+
 a {
   color: #ffffff;
   text-decoration: none;
@@ -322,10 +324,10 @@ p {font-size:1.6em; line-height:1.414; margin:0px 0px 16px; font-family:Nunito S
   text-align:center;
   width:100%;
   box-sizing:border-box;
-  display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-  display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-  display: -ms-flexbox;      /* TWEENER - IE 10 */
-  display: -webkit-flex;     /* NEW - Chrome */
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
   display:flex;
   -webkit-justify-content: center;
   justify-content:center;
@@ -336,7 +338,6 @@ p {font-size:1.6em; line-height:1.414; margin:0px 0px 16px; font-family:Nunito S
     width: min-content;
     margin:0 auto;
 }
-/*.active {display:block!important;}*/
 
 #panel-1 h2 {
     color:#e6003e;
@@ -362,6 +363,25 @@ p {font-size:1.6em; line-height:1.414; margin:0px 0px 16px; font-family:Nunito S
 
 #panel-1 a, #panel-3 a {color:#e6003e; font-size:1.8em; font-family: Nunito; line-height:2.828; font-weight: 800; text-transform:uppercase;}
 
+
+#panel-1 .left-btn {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-right:0px;
+}
+
+#panel-1 .center-btn {
+    margin-left:-3px;
+    margin-right:-3px;
+    z-index: 1;
+}
+
+#panel-1 .right-btn {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-left:0px;
+}
+
 #panel-1 button {
     border: 2px solid #e10b3c;
     padding: 1.1em;
@@ -370,28 +390,17 @@ p {font-size:1.6em; line-height:1.414; margin:0px 0px 16px; font-family:Nunito S
     font-weight: 600;
     text-transform: uppercase;
     margin-bottom: 32px;
-}
-
-#panel-1 .left-btn {
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-}
-
-#panel-1 .center-btn {
-    border-left:0px;
-    border-right:0px;
-    margin:0px -2px 32px;
-}
-
-#panel-1 .right-btn {
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
+    background:white;
 }
 
 #panel-2 {
     border-top: 1px solid #e1e1e1;
     border-bottom: 1px solid #e1e1e1;
     padding: 3.2vw 1vw;
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
     display: flex;
     -webkit-justify-content: space-around;
     justify-content: space-around;
@@ -400,9 +409,14 @@ p {font-size:1.6em; line-height:1.414; margin:0px 0px 16px; font-family:Nunito S
 }
 
 #panel-2 ul {
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: center;
+    -webkit-justify-content: space-evenly;
     width: 100%;
     text-align: center;
     list-style: none;
@@ -481,8 +495,38 @@ p {font-size:1.6em; line-height:1.414; margin:0px 0px 16px; font-family:Nunito S
 
 #call-out a {font-size:2.3em; color:#e6003e; font-weight:900; margin-bottom:23px;}
 
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 15px;
+    border-radius: 5px;   
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%; 
+    background: #4CAF50;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #4CAF50;
+    cursor: pointer;
+}
+
 #cta-form {
-    flex-direction: column;
+    flex-wrap:wrap;
     display: flex;
     -webkit-justify-content: space-evenly;
     justify-content: space-evenly;
@@ -491,40 +535,66 @@ p {font-size:1.6em; line-height:1.414; margin:0px 0px 16px; font-family:Nunito S
     width: calc(30% + 200px);
 }
 
+fieldset {border:0px;}
+
+#regForm {
+    text-align: center;
+    position: relative;
+}
+
+#regForm .form-section {
+    display: none;
+}
+
+#regForm .current {
+    display: block;
+}
+
+#regForm .blocking-span-1, #regForm .blocking-span-3, #regForm .blocking-span-5 {
+    float:left; width:47.5%; margin-right:5%;
+}
+
+#regForm .blocking-span-2, #regForm .blocking-span-4, #regForm .blocking-span-6 {
+    float:left; width:47.5%;;
+}
+
+#regForm .blocking-span-7 {width:100%; float:left;}
+
 #regForm {
     margin-top: 45px;
     max-width: 32vw;
 }
 
-
-/* Mark input boxes that gets an error on validation: */
-#regForm input.invalid {
-  border-color: #e6003e;
-}
-
-/* Hide all steps by default: */
-#regForm .tab {
-  display: none;
-  flex-direction: row;
-}
-
-#regForm button:hover {
+#regForm input[type="submit"]:hover, #regForm button:hover {
   opacity: 0.8;
 }
-
 
 #regForm input {
     background: none;
     border: 0px;
-    padding: 16px;
-    width:100%;
-    font-size: 2.3em;
+    padding: 16px 0;
+    margin-bottom:16px;
+    width: 100%;
+    max-height: 64px;
+    font-size: 2.1em;
     color: white;
     border-bottom: 2px dashed white;
     text-shadow: 0px 0px 3px rgba(0,0,0,0.5);
     font-family: nunito;
     font-weight: 600;
-    box-sizing:border-box;
+    position:relative;
+    z-index:1;
+    box-sizing: border-box;
+}
+
+.parsley-errors-list {
+    list-style: none;
+    padding: 0;
+    line-height: 0;
+    margin: 0;
+    color: silver;
+    font-family: nunito sans;
+    text-align: left;
 }
 
 #cta-form input[type=text], #cta-form input[type=email], #cta-form input[type=date], #cta-form .inputText, #cta-form textarea {
@@ -536,12 +606,18 @@ p {font-size:1.6em; line-height:1.414; margin:0px 0px 16px; font-family:Nunito S
     color: white;
     font-size: 1.6em;
     font-family:Nunito;
+    height:40px;
     width:100%;
     width: -webkit-fill-available;
     -webkit-appearance:none;
     -moz-appearance: none;
     appearance: none;
 }
+
+#cta-form input[type=date] {font-size:1.4em;}
+
+.whole {width:100%;} 
+.half {width:50%;}
 
 input[type="text"]:focus,
 input[type="text"]:not(:focus):valid,
@@ -556,20 +632,32 @@ input[type="date"]:not(:focus):valid {border-color:#e6003e;}
   outline: -webkit-focus-ring-color auto 0px;
 }
 
+#regForm label {
+    color: #75DD38;
+    font-family: nunito;
+    font-size: 2.3em;
+    text-align: center;
+    margin-top: 16px;
+}
+
 #cta-form ::-webkit-input-placeholder, #regForm ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   color: #ffffff;
+  font-size:0.7em;
 }
 #cta-form ::-moz-placeholder, #regForm ::-webkit-input-placeholder { /* Firefox 19+ */
   color: #ffffff;
+  font-size:0.7em;
 }
 #cta-form :-ms-input-placeholder, #regForm ::-webkit-input-placeholder { /* IE 10+ */
   color: #ffffff;
+  font-size:0.7em;
 }
 #cta-form :-moz-placeholder, #regForm ::-webkit-input-placeholder { /* Firefox 18- */
   color: #ffffff;
+  font-size:0.7em;
 }
-#prevBtn {display: none!important;}
-#cta-form input[type=submit], #regForm #nextBtn {
+
+#cta-form input[type=submit], #regForm input[type="submit"], #regForm button {
     border:0px solid white;
     border-radius: 300px;
     color: #ffffff;
@@ -579,8 +667,21 @@ input[type="date"]:not(:focus):valid {border-color:#e6003e;}
     padding: 1.1em 1.6em;
     font-size: 1.8em;
     font-family: Nunito;
+    cursor:pointer;
     font-weight: 600;
     text-transform: uppercase;
+}
+
+#cta-form .parsley-errors-list {
+    list-style: none;
+    padding: 0;
+    line-height: 0;
+    top: -9px;
+    position: absolute;
+    margin: 0;
+    color: silver;
+    font-family: nunito sans;
+    text-align: left;
 }
 
 #cta-form div {
@@ -595,7 +696,7 @@ input[type="date"]:not(:focus):valid {border-color:#e6003e;}
 }
 
 #select-span .floating-label {
-    top: 9px;
+    top: 28px;
 }
 
 #cta-form .floating-label, #regForm .floating-label {
@@ -673,11 +774,34 @@ input[type="date"]:not(:focus):valid {border-color:#e6003e;}
     width: 100%;
 }
 
-/*Footer Start*/
+.success {display: flex;
+    justify-content: center;
+    flex-direction:column;
+    min-height: 320px;
+    align-items: center;
+    padding: 30px;}
+
+.success a {border:0px solid white;
+    border-radius: 300px;
+    color: #ffffff;
+    background:#e6003e;
+    margin-top:23px;
+    padding: 1.1em 1.6em;
+    font-size: 1.8em;
+    font-family: Nunito;
+    cursor:pointer;
+    font-weight: 600;
+    text-transform: uppercase;}
 
 .footer {float:left; width:100%; background:#e60d43; padding:30px; position:relative; box-sizing:border-box;}
-.footer .container {display:flex; flex-direction:row; justify-content:space-between; max-width:1170px; margin:0 auto;}
-.footer .ftrDiv {display:flex; flex-direction:column;}
+.footer .container {display:flex;   display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;      /* TWEENER - IE 10 */
+  display: -webkit-flex;     /* NEW - Chrome */ flex-direction:row; justify-content:space-between; max-width:1170px; margin:0 auto;}
+.footer .ftrDiv {display:flex; flex-direction:column;   display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;      /* TWEENER - IE 10 */
+  display: -webkit-flex;     /* NEW - Chrome */}
 .footer .ftrDiv h2 { color:#fff; font:400 15px/20px 'Lato', sans-serif; margin:0 0 15px 0; padding:0; text-transform:uppercase; text-transform:1px;}
 .footer .ftrDiv p {font-size:1.3em; margin:0 0 7px 0; padding:0; color:#ffb2c5;}
 .footer .ftrDiv a {font-family:Nunito; font-size:1.1em; margin:0; padding:0; color:#ffb2c5;}
@@ -685,13 +809,11 @@ input[type="date"]:not(:focus):valid {border-color:#e6003e;}
 
 .footer .footer-bottom { float:left; width:100%; text-align:center; margin:20px 0 0 0; padding:25px 0 0 0; border-top:1px solid #e85d82;}
 .footer .footer-bottom p { color:#ffd2dd; font-size:1.3em; margin:0;}
-/*Footer End*/
-
 
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
 
-.banner {height:75vw;}
-
+.banner {height:100vw;}
+#panel-1 .left-btn, #panel-1 .center-btn, #panel-1 .right-btn {font-size: 0.82em;}
 #panel-1 a, #panel-3 a {font-size:1.6em;}
 #cta {flex-direction:column;}
 #cta-form {width:100%;}
@@ -703,6 +825,7 @@ input[type="date"]:not(:focus):valid {border-color:#e6003e;}
 .mobile-hide {display:none;}
 #regForm {max-width:100%;}
 #regForm .tab {flex-direction: column;}
+#regForm div {margin-bottom:23px;}
 }
 
 @media only screen and (max-width: 767px) {
@@ -711,7 +834,7 @@ input[type="date"]:not(:focus):valid {border-color:#e6003e;}
 header ul .phone {font-size:3.2em; margin-left:23px;}
 
 .banner {
-    height: 140vw;
+    height: 180vw;
     width: 100%;
     padding: 15px 15px 30px;
     box-sizing: border-box;
@@ -746,7 +869,7 @@ h3 {
 #panel-1 h2 {width:100%; padding:0; text-align: center;}
 #panel-1 p {text-align: center;}
 #panel-1 a, #panel-3 a {font-size:1.6em; text-align:center; width:100%;}
-#panel-1 .left-btn, #panel-1 .center-btn, #panel-1 .right-btn {font-size: 0.82em; background:white;}
+#panel-1 .left-btn, #panel-1 .center-btn, #panel-1 .right-btn {font-size: 0.82em;}
 .service {width:100%;}
 #panel-3 {flex-direction:column;}
 .text-content {width:100%; padding:9em 4.5vw;}
@@ -762,6 +885,7 @@ h3 {
 }
 .footer .container {flex-direction:column;}
 #regForm {max-width:100%;}
+#regForm div {margin-bottom:23px;}
 #regForm .tab {flex-direction: column;}
 .footer .ftrDiv img {margin-top: 32px;}
 }
