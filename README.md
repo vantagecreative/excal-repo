@@ -16,7 +16,7 @@ cd ~/excal-repo
 # Update Content
 Index.md
 
-# Update PHP Contact Info
+# Update PHP Contact Info in Action.php
 Set to your e-mail to test contact form / replace when launching
 
 # Build pages
