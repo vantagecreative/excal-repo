@@ -28,7 +28,6 @@ jekyll serve
 # Load Site In Browser
 Example: http://localhost:4000/excal-repo/index.html
 
-# Copy Built Index File & Rename to Index.php
-This will enable server-side processing of the contact submissions.
+# Publish Files In Site Folder to FTP
 
 ------
