@@ -19,9 +19,9 @@
   <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
   <script src="https://parsleyjs.org/dist/parsley.js"></script>
   <?php
-    $to = "van@vanriss.com";
+    $to = "LEADS3@excaliburmovinggroup.com";
     $subject = "You have a new lead!";
-    $headers = "From: van@vanriss.com";
+    $headers = "From: LEADS3@excaliburmovinggroup.com";
     $name = $_POST['name'];
     $email = $_POST['email'];
     $phone = $_POST['phone'];
