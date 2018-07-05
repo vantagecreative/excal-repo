@@ -3,48 +3,48 @@
             <p>{{ page.panel-4-body }}</p>
             <a href="#name-2" id="link" class="hvr-forward">Fill out your contact information <span class="flaticon-arrow-right"></span></a>
         </div>
-        <div id="cta-form">
-            <div>
-              <span class="blocking-span">
-                <input type="text" name="name" id="name-2" class="inputText" required/>
-                <span class="floating-label"><span class="flaticon-user"></span> Full Name</span>
-              </span>
-            </div>
-            <div>
-              <span class='blocking-span'>
-                <input type="email" name="email" class="inputText" required/>
-                <span class="floating-label"><span class="flaticon-email"></span> E-mail</span>
-              </span>
-            </div>
-            <div>
-              <span class='blocking-span'>
-                <input type="phone" name="phone" id="phone-2" class="inputText" required/>
-                <span class="floating-label"><span class="flaticon-phone-solid"></span> Phone</span>
-              </span>
-            </div>
-            <div>
-              <span class='blocking-span'>
-                <input type="text" name="zip-from" id="zip-from-2" class="inputText" required/>
-                <span class="floating-label"><span class="flaticon-marker"></span> Moving From</span>
-              </span>
-            </div>
-            <div>
-              <span class='blocking-span'>
-                <input type="text" name="zip-to" id="zip-to-2" class="inputText" required/>
-                <span class="floating-label"><span class="flaticon-marker"></span> Moving to</span>
-              </span>
-            </div>
-            <div>
-              <span class='blocking-span'>
-                <input type="number" name="rooms" id="rooms" class="inputText" required/>
-                <span class="floating-label"><span class="flaticon-rooms"></span> Number of Rooms</span>
-              </span>
-            </div>
-            <div>
-              <span class='blocking-span'>
-                <input type="text" name="date-2" id="date-2" class="inputText" required/>
-                <span class="floating-label"><span class="flaticon-date"></span> Date of Move</span>
-              </span>
-            </div>
-            <button type="submit"> Let's Get Started <span class="flaticon-arrow-right"></span></button>
-        </div>
+        <form id="cta-form" autocomplete="off" action="action.php" method="POST">
+              <div class="whole">
+                <span class="blocking-span">
+                  <input type="text" autocomplete="smartystreets" name="name" id="name" class="inputText" data-parsley-error-message="What is your name?" required/>
+                  <span class="floating-label"><span class="flaticon-user"></span> Full Name</span>
+                </span>
+              </div>
+              <div class="whole">
+                <span class='blocking-span'>
+                  <input type="email" name="email" class="inputText" data-parsley-error-message="What is your e-mail?" required/>
+                  <span class="floating-label"><span class="flaticon-email"></span> E-mail</span>
+                </span>
+              </div>
+              <div class="whole">
+                <span class='blocking-span'>
+                  <input type="phone" autocomplete="smartystreets" name="phone" id="phone-2" parsley-type="phone" size="13" minlength="13" maxlength="13" class="inputText" data-parsley-error-message="Please provide a 10 digit phone number." required/>
+                  <span class="floating-label"><span class="flaticon-phone-solid"></span> Phone</span>
+                </span>
+              </div>
+              <div class="half">
+                <span class='blocking-span'>
+                  <input type="text" autocomplete="smartystreets" name="zipfrom" id="zipfrom-2" class="inputText" data-parsley-error-message="This is not a valid 5-digit zip code." required/>
+                  <span class="floating-label"><span class="flaticon-marker"></span> Moving From</span>
+                </span>
+              </div>
+              <div class="half">
+                <span class='blocking-span'>
+                  <input type="text" name="zipto" id="zipto-2" class="inputText" data-parsley-error-message="This is not a valid 5-digit zip code." required/>
+                  <span class="floating-label"><span class="flaticon-marker"></span> Moving to</span>
+                </span>
+              </div>
+              <div class="half">
+                <span class='blocking-span'>
+                  <input type="number" autocomplete="smartystreets" min="1" minlength="1" name="rooms" id="rooms" class="inputText" data-parsley-error-message="Please indicate your rooms." required/>
+                  <span class="floating-label"><span class="flaticon-rooms"></span> Rooms</span>
+                </span>
+              </div>
+              <div class="half">
+                <span class='blocking-span'>
+                  <input type="text" autocomplete="smartystreets" size="8" minlength="8" maxlength="8" name="date" id="date-2" class="inputText" data-parsley-error-message="Please provide a valid date (DD/MM/YY)." required/>
+                  <span class="floating-label"><span class="flaticon-date"></span> Date of Move</span>
+                </span>
+              </div>
+              <input type="submit" value="submit" name="submit">
+      </form>

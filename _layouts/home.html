@@ -15,74 +15,62 @@
   <link href="https://fonts.googleapis.com/css?family={{ page.body-font }}:300,400,600|{{ page.headline-font }}:400,600,800" rel="stylesheet">
   <link rel="stylesheet" href="/css/hover.css" media="screen">
   <link rel="stylesheet" href="/css/style.css" media="screen">
-  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+  <script src="https://parsleyjs.org/dist/parsley.js"></script>
 </head>
 <body class="{{page.layout}}">
 <div class="banner" style="background-image: url({{ page.banner }});">
     {% include header.html %}
     <div class="callout">
 				<h1>{{ page.callout }}</h1>
-	<form id="regForm" autocomplete="off" action="/action_page.html">
-  <!-- One "tab" for each step in the form: -->
-  <div class="tab">
-    <div style="margin-right:16px;" >
-      <span class='blocking-span'>
-        <input type="text" autocomplete="off" name="zip-from" id="zip-from" class="inputText" required oninput="this.className = ''"/>
-        <span class="floating-label"><span class="flaticon-marker"></span> Moving From</span>
-      </span>
-    </div>
-    <div>
-      <span class='blocking-span'>
-        <input type="text" autocomplete="off" name="zip-to" id="zip-to" class="inputText" required oninput="this.className = ''"/>
-        <span class="floating-label"><span class="flaticon-marker"></span> Moving to</span>
-      </span>
-    </div>
-  </div>
-  <div class="tab">
-    <div style="margin-right:16px;">
-      <span class='blocking-span'>
-        <input type="number" autocomplete="off" name="rooms" id="rooms" class="inputText" required oninput="this.className = ''"/>
-        <span class="floating-label"><span class="flaticon-rooms"></span> Number of Rooms</span>
-      </span>
-    </div>
-    <div>
-      <span class='blocking-span'>
-        <input type="text" autocomplete="off" name="date" id="date" class="inputText" required oninput="this.className = ''"/>
-        <span class="floating-label"><span class="flaticon-date"></span> Date of Move</span>
-      </span>
-    </div>
-  </div>
-  <div class="tab">
-    <div style="margin-right:16px;">
-      <span class="blocking-span">
-        <input type="text" autocomplete="off" name="name" id="name" class="inputText" required/>
-        <span class="floating-label"><span class="flaticon-user"></span> Full Name</span>
-      </span>
-    </div>
-    <div style="margin-right:16px;">
-      <span class='blocking-span'>
-        <input type="email" autocomplete="off" name="email" class="inputText" required/>
-        <span class="floating-label"><span class="flaticon-email"></span> E-mail</span>
-      </span>
-    </div>
-    <div>
-      <span class='blocking-span'>
-        <input type="phone" autocomplete="off" name="phone" id="phone" class="inputText" required/>
-        <span class="floating-label"><span class="flaticon-phone-solid"></span> Phone</span>
-      </span>
-    </div>
-  </div>
-      <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
-      <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
-  </div>
-  <!-- Circles which indicates the steps of the form: -->
-
-    <span class="step"></span>
-    <span class="step"></span>
-    <span class="step"></span>
-
-</form>
-
+				<form id="regForm" action="action.php" method="post">
+          <div class="form-section">
+            <div class="tab">
+              <div class='blocking-span-1'>
+                  <input type="text" autocomplete="smartystreets" size="8" minlength="15" name="zipfrom" id="zipfrom" class="inputText" data-parsley-error-message="This is not a valid 5-digit zip code." required/>
+                  <span class="floating-label"><span class="flaticon-marker"></span> Moving From</span>
+              </div>
+                <div class='blocking-span-2'>
+                  <input type="text" autocomplete="smartystreets" minlength="15" name="zipto" id="zipto" class="inputText" data-parsley-error-message="This is not a valid 5-digit zip code." required/>
+                  <span class="floating-label"><span class="flaticon-marker"></span> Moving to</span>
+              </div>
+              </div>
+          </div>
+          <div class="form-section">
+            <div class="tab">
+                <div class='blocking-span-3'>
+                  <input type="number" autocomplete="smartystreets" data-parsley-type="digits" min="1" minlength="1" name="rooms" id="rooms" class="inputText" data-parsley-error-message='Please indicate your rooms.' required>
+                  <span class="floating-label"><span class="flaticon-rooms"></span> Rooms</span>
+                </div>
+                <div class="blocking-span-4">
+                  <input type="text" autocomplete="smartystreets" size="8" minlength="8" maxlength="8" name="date" id="date" class="inputText" data-parsley-error-message="Please provide a valid date (DD/MM/YY)" required>
+                  <span class="floating-label"><span class="flaticon-date"></span> Date of Move</span>
+                </div>
+              </div>
+          </div>
+          <div class="form-section">
+            <div class="tab">
+                        <div class="blocking-span-5">
+                          <input type="text" autocomplete="smartystreets" name="name" id="name" class="inputText" data-parsley-error-message="What is your name?" required>
+                          <span class="floating-label"><span class="flaticon-user"></span> Full Name</span>
+                        </div>
+                        <div class='blocking-span-6'>
+                          <input type="email" name="email" class="inputText" data-parsley-error-message="Please provide a valid e-mail." required>
+                          <span class="floating-label"><span class="flaticon-email"></span> E-mail</span>
+                        </div>
+                        <div class='blocking-span-7'>
+                          <input type="text" autocomplete="smartystreets" name="phone" id="phone" size="13" minlength="13" maxlength="13" class="inputText" data-parsley-error-message="Please provide a 10 digit phone number." required>
+                          <span class="floating-label"><span class="flaticon-phone-solid"></span> Phone</span>
+                        </div>
+                      </div>
+          </div>
+          <div class="form-navigation">
+            <button type="button" class="next btn btn-info pull-right">Next</button>
+            <input type="submit" value="submit" name="submit">
+            <span class="clearfix"></span>
+          </div>
+        </form>
 		</div>
 </div>
 

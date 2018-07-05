@@ -36,79 +36,56 @@
 </div>
 
 <script src="/js/jquery.mask.js"></script>
+
 <script>
-var currentTab = 0; // Current tab is set to be the first tab (0)
-showTab(currentTab); // Display the crurrent tab
 
-function showTab(n) {
-  // This function will display the specified tab of the form...
-  var x = document.getElementsByClassName("tab");
-  x[n].style.display = "flex";
-  //... and fix the Previous/Next buttons:
-  if (n == 0) {
-    document.getElementById("prevBtn").style.display = "none";
-  } else {
-    document.getElementById("prevBtn").style.display = "inline";
-  }
-  if (n == (x.length - 1)) {
-    document.getElementById("nextBtn").innerHTML = "Submit";
-  } else {
-    document.getElementById("nextBtn").innerHTML = "Next";
-  }
-  //... and run a function that will display the correct step indicator:
-  fixStepIndicator(n)
-}
+$(function () {
+  var $sections = $('.form-section');
 
-function nextPrev(n) {
-  // This function will figure out which tab to display
-  var x = document.getElementsByClassName("tab");
-  // Exit the function if any field in the current tab is invalid:
-  if (n == 1 && !validateForm()) return false;
-  // Hide the current tab:
-  x[currentTab].style.display = "none";
-  // Increase or decrease the current tab by 1:
-  currentTab = currentTab + n;
-  // if you have reached the end of the form...
-  if (currentTab >= x.length) {
-    // ... the form gets submitted:
-    document.getElementById("regForm").submit();
-    return false;
+  function navigateTo(index) {
+    // Mark the current section with the class 'current'
+    $sections
+      .removeClass('current')
+      .eq(index)
+        .addClass('current');
+    // Show only the navigation buttons that make sense for the current section:
+    $('.form-navigation .previous').toggle(index > 0);
+    var atTheEnd = index >= $sections.length - 1;
+    $('.form-navigation .next').toggle(!atTheEnd);
+    $('.form-navigation [type=submit]').toggle(atTheEnd);
   }
-  // Otherwise, display the correct tab:
-  showTab(currentTab);
-}
 
-function validateForm() {
-  // This function deals with validation of the form fields
-  var x, y, i, valid = true;
-  x = document.getElementsByClassName("tab");
-  y = x[currentTab].getElementsByTagName("input");
-  // A loop that checks every input field in the current tab:
-  for (i = 0; i < y.length; i++) {
-    // If a field is empty...
-    if (y[i].value == "") {
-      // add an "invalid" class to the field:
-      y[i].className += " invalid";
-      // and set the current valid status to false
-      valid = false;
-    }
+  function curIndex() {
+    // Return the current index by looking at which section has the class 'current'
+    return $sections.index($sections.filter('.current'));
   }
-  // If the valid status is true, mark the step as finished and valid:
-  if (valid) {
-    document.getElementsByClassName("step")[currentTab].className += " finish";
-  }
-  return valid; // return the valid status
-}
 
-function fixStepIndicator(n) {
-  // This function removes the "active" class of all steps...
-  var i, x = document.getElementsByClassName("step");
-  for (i = 0; i < x.length; i++) {
-    x[i].className = x[i].className.replace(" active", "");
-  }
-  //... and adds the "active" class on the current step:
-  x[n].className += " active";
-}
+  // Previous button is easy, just go back
+  $('.form-navigation .previous').click(function() {
+    navigateTo(curIndex() - 1);
+  });
+
+  // Next button goes forward iff current block validates
+  $('.form-navigation .next').click(function() {
+    $('#regForm').parsley().whenValidate({
+      group: 'block-' + curIndex()
+    }).done(function() {
+      navigateTo(curIndex() + 1);
+    });
+  });
+
+  // Prepare sections by setting the `data-parsley-group` attribute to 'block-0', 'block-1', etc.
+  $sections.each(function(index, section) {
+    $(section).find(':input').attr('data-parsley-group', 'block-' + index);
+  });
+  navigateTo(0); // Start at the beginning
+});
+
+$(function () {
+  $('#cta-form').parsley().on('field:validated', function() {
+    var ok = $('.parsley-error').length === 0;
+  })
+});
 
   function openService(serviceName) {
       var i;
@@ -123,25 +100,38 @@ function fixStepIndicator(n) {
       document.getElementById(serviceName).style.display = "block"; 
       evt.currentTarget.className += " active";
   }
+  
+	$('#phone').mask("(000)000-0000");
+	$('#zipfrom').mask("Zip Code: 00000");
+	$('#zipto').mask("Zip Code: 00000");
+	$('#phone-2').mask("(000)000-0000");
+	$('#zipfrom-2').mask("Zip Code: 00000");
+	$('#zipto-2').mask("Zip Code: 00000");
+	$('#date').mask("00/00/00", {placeholder: "DD/MM/YY"});
+	$('#date-2').mask("00/00/00", {placeholder: "DD/MM/YY"});
+	 
+// var options =  {
+//   onComplete: function(cep) {
+//     $("#date").text("");
+//   },
+//   onInvalid: function(val, e, f, invalid, options){
+//     var error = invalid[0];
+//     $("#date").text("Enter date in DD/MM/YYYY format");
+//   }
+// };
+// $('#date').mask("00/00/0000", options);
 
-	$('#phone').mask("+1(000)000-0000");
-	$('#zip-from').mask("Zip Code: 00000-000");
-	$('#zip-to').mask("Zip Code: 00000-000");
-	$('#date').mask("00 / 00 / 0000");
-	$('#phone-2').mask("+1(000)000-0000");
-	$('#zip-from-2').mask("Zip Code: 00000-000");
-	$('#zip-to-2').mask("Zip Code: 00000-000");
-	$('#date-2').mask("00 / 00 / 0000");
-	
-	$('textarea').blur(
-        function(){
-            $(this).css('border-bottom','2px solid #8f819b');
-        });
-    $('#link').click(function (evt){
-      $('input#name').removeAttr('value');
-      $("input#name").focus();
-      evt.preventDefault();
-    });
+// var options =  {
+//   onComplete: function(cep) {
+//     $("#phone-2").text("");
+//   },
+//   onInvalid: function(val, e, f, invalid, options){
+//     var error = invalid[0];
+//     $("#phone-2").text("Phone must be 10 digits long.");
+//   }
+// };
+// $('#phone-2').mask("(000)000-0000", options);
+    
 $('a[href*="#"]')
   // Remove links that don't actually link to anything
   .not('[href="#"]')
@@ -161,8 +151,7 @@ $('a[href*="#"]')
         // Only prevent default if animation is actually gonna happen
         event.preventDefault();
         $('html, body').animate({
-          scrollTop: target.offset().top - 200
-        }, 1000, function() {
+          scrollTop: target.offset().top}, 1000, function() {
           // Callback after animation
           // Must change focus!
           var $target = $(target);

@@ -6,10 +6,9 @@ headline-font: Nunito
 body-font: Nunito+Sans
 author: Consumer Affairs
 layout: home
-
-
 logo: "/images/logo.png"
 phone: (888) 204-0718
+
 banner: "/images/banner.jpg"
 callout: Let's plan<br>your <span>move.</span>
 
